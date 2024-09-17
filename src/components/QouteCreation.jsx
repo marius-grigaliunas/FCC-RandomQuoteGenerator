@@ -10,13 +10,7 @@ function QuoteGenerator({ setQoute }) {
         const randomIndex = Math.floor(Math.random() * quotes.length);
         const randomqoute = quotes[randomIndex];
         setQoute(randomqoute);
-    }
+    }}
 
-    return (
-        <div>
-            <button onClick={getQoute}>New qoute</button>
-        </div>
-    );
-};
+// export a qoute here, use it the other isntances,  you need to.
 
-export default QuoteGenerator;
