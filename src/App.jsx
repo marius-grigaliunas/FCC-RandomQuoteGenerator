@@ -6,7 +6,12 @@ function App() {
   const [quote, setQuote] = useState("");
 
   useEffect(() => {
-    setQuote(quoteMaker());
+    const handleQuoteRequest = async () => {
+      const quote = await quoteMaker();
+      setQuote(quote);
+  }
+
+    handleQuoteRequest();
   }, []);
 
   return (

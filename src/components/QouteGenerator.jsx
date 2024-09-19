@@ -2,13 +2,14 @@ import PropTypes from 'prop-types';
 import quoteMaker from './QuoteCreation';
 
 function QuoteGenerator({ setQuote }) {
-    const getQuote = () => {
-        setQuote(quoteMaker())
+    const handleQuoteRequest = async () => {
+        const quote = await quoteMaker();
+        setQuote(quote);
     }
 
     return (
         <div>
-            <button onClick={getQuote}>New quote</button>
+            <button onClick={handleQuoteRequest}>New quote</button>
         </div>
     );
 };

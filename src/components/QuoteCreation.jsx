@@ -1,4 +1,7 @@
-const quotes = [
+// hardcoded quotes aren't enough.
+// in the future intgrate ai to generate quotes.
+
+/*const quotes = [
     {
       quote: "I told my wife she was drawing her eyebrows too high. She looked surprised.",
       author: "Anonymous"
@@ -44,7 +47,21 @@ const quotes = [
 const quoteMaker = () => {
         const randomIndex = Math.floor(Math.random() * quotes.length);
         return quotes[randomIndex];
+    };
+*/
+
+const QUOTABLE_API = "https://api.quotable.io/random";
+
+const quoteMaker = async () => {
+    try {
+        const response = await fetch(QUOTABLE_API);
+        const data = await response.json();
+        return {quote: data.content, author: data.author};
     }
-// export a qoute here, use it the other isntances,  you need to.
+    catch (error) {
+        console.error("Error at fetching a quote:", error);
+        return {quote: "Quick mafs make Bad mans", author: "Junior"};
+    }
+}
 
 export default quoteMaker;
