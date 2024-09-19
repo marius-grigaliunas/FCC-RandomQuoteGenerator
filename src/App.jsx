@@ -1,19 +1,24 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react' 
 import QuoteGenerator from './components/QouteGenerator';
+import quoteMaker from './components/QuoteCreation';
 
 function App() {
-  const [qoute, setQoute] = useState({qoute: "laba diena", author: "M."});
+  const [quote, setQuote] = useState("");
+
+  useEffect(() => {
+    setQuote(quoteMaker());
+  }, []);
 
   return (
     <>
       <section id="quote-box">
         <div id="text">
-          {qoute.qoute}
+          {quote.quote}
         </div>
         <div id='author'>
-          -{qoute.author}
+          -{quote.author}
         </div>
-        <QuoteGenerator id="new-qoute" setQoute={setQoute} />
+        <QuoteGenerator id="new-qoute" setQuote={setQuote} />
         <a id='tweet-qoute'>
           Twitter
         </a>

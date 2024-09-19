@@ -1,22 +1,21 @@
-const quotes = [
-    {qoute: "Vaziuojam Dzesika", author: "Rotar"},
-    {qoute: "Dasvidanya", author: "Somebody"},
-    {qoute: "I am not creative", author: "Mariusika"},
-    {qoute: "I am cringe", author: "Marius"}
-];
+import PropTypes from 'prop-types';
+import quoteMaker from './QuoteCreation';
 
-function QuoteGenerator({ setQoute }) {
-    const getQoute = () => {
-        const randomIndex = Math.floor(Math.random() * quotes.length);
-        const randomqoute = quotes[randomIndex];
-        setQoute(randomqoute);
+function QuoteGenerator({ setQuote }) {
+    const getQuote = () => {
+        setQuote(quoteMaker())
     }
 
     return (
         <div>
-            <button onClick={getQoute}>New qoute</button>
+            <button onClick={getQuote}>New quote</button>
         </div>
     );
 };
+
+QuoteGenerator.propTypes = {
+    setQuote: PropTypes.func.isRequired
+  };
+  
 
 export default QuoteGenerator;
