@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react' 
 import QuoteGenerator from './components/QouteGenerator';
 import quoteMaker from './components/QuoteCreation';
+import ShareBar from './components/Sharebar';
+import "./App.css"
 
 function App() {
   const [quote, setQuote] = useState("");
@@ -23,10 +25,10 @@ function App() {
         <div id='author'>
           -{quote.author}
         </div>
-        <QuoteGenerator id="new-qoute" setQuote={setQuote} />
-        <a id='tweet-qoute'>
-          Twitter
-        </a>
+        <div className='controls'>
+          <QuoteGenerator setQuote={setQuote} />
+          <ShareBar />
+        </div>
       </section>
     </>
   )

@@ -1,9 +1,9 @@
 // hardcoded quotes aren't enough.
 // in the future intgrate ai to generate quotes.
 
-/*const quotes = [
+const quotes = [
     {
-      quote: "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+      quote: "I told my wife she was drawing her eyebrows too high. She looked surprised. I told my wife she was drawing her eyebrows too high. She looked surprised. I told my wife she was drawing her eyebrows too high. She looked surprised. ",
       author: "Anonymous"
     },
     {
@@ -44,11 +44,11 @@
     }
   ];
 
-const quoteMaker = () => {
+const randomQuote = () => {
         const randomIndex = Math.floor(Math.random() * quotes.length);
         return quotes[randomIndex];
     };
-*/
+
 
 const QUOTABLE_API = "https://api.quotable.io/random";
 
@@ -60,7 +60,7 @@ const quoteMaker = async () => {
     }
     catch (error) {
         console.error("Error at fetching a quote:", error);
-        return {quote: "Quick mafs make Bad mans", author: "Junior"};
+        return randomQuote;
     }
 }
 

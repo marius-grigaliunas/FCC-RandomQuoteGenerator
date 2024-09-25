@@ -8,8 +8,8 @@ function QuoteGenerator({ setQuote }) {
     }
 
     return (
-        <div>
-            <button onClick={handleQuoteRequest}>New quote</button>
+        <div className='newqoute-button-container'>
+            <button id="new-qoute" onClick={handleQuoteRequest}>New quote</button>
         </div>
     );
 };
