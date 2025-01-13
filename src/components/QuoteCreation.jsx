@@ -50,13 +50,14 @@ const randomQuote = () => {
     };
 
 
-const QUOTABLE_API = "https://api.quotable.io/random";
+const QUOTABLE_API = "https://programming-quotes-api.azurewebsites.net/api/quotes/random";
 
 const quoteMaker = async () => {
     try {
-        const response = await fetch(QUOTABLE_API);
-        const data = await response.json();
-        return {quote: data.content, author: data.author};
+        const response = await fetch(QUOTABLE_API)
+        const data = await response.json()
+        console.log(data);
+        return {quote: data.text, author: data.author};
     }
     catch (error) {
         console.error("Error at fetching a quote:", error);
