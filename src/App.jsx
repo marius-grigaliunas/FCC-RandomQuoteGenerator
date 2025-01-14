@@ -1,20 +1,21 @@
 import { useEffect, useState } from 'react' 
 import QuoteGenerator from './components/QouteGenerator';
-import quoteMaker from './components/QuoteCreation';
+import { randomQuote, quoteMaker }  from './components/QuoteCreation'
+//import quoteMaker from './components/QuoteCreation';
 import ShareBar from './components/Sharebar';
 import "./App.css"
 
 function App() {
-  const [quote, setQuote] = useState("");
+  const [quote, setQuote] = useState(randomQuote);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const handleQuoteRequest = async () => {
       const quote = await quoteMaker();
       setQuote(quote);
   }
 
     handleQuoteRequest();
-  }, []);
+  }, []);*/
 
   return (
     <>

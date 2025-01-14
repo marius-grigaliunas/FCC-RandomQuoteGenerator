@@ -44,7 +44,7 @@ const quotes = [
     }
   ];
 
-const randomQuote = () => {
+export const randomQuote = () => {
         const randomIndex = Math.floor(Math.random() * quotes.length);
         return quotes[randomIndex];
     };
@@ -52,11 +52,10 @@ const randomQuote = () => {
 
 const QUOTABLE_API = "https://programming-quotes-api.azurewebsites.net/api/quotes/random";
 
-const quoteMaker = async () => {
+export const quoteMaker = async () => {
     try {
         const response = await fetch(QUOTABLE_API)
         const data = await response.json()
-        console.log(data);
         return {quote: data.text, author: data.author};
     }
     catch (error) {
@@ -64,5 +63,3 @@ const quoteMaker = async () => {
         return randomQuote;
     }
 }
-
-export default quoteMaker;

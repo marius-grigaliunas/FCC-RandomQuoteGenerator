@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import quoteMaker from './QuoteCreation';
+import { quoteMaker } from './QuoteCreation';
 
 function QuoteGenerator({ setQuote }) {
     const handleQuoteRequest = async () => {
