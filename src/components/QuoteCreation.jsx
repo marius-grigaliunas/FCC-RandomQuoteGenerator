@@ -53,7 +53,7 @@ export const randomQuote = () => {
 const QUOTABLE_API = "https://programming-quotes-api.azurewebsites.net/api/quotes/random";
 
 export const quoteMaker = async () => {
-    try {
+    /*try {
         const response = await fetch(QUOTABLE_API)
         const data = await response.json()
         return {quote: data.text, author: data.author};
@@ -61,5 +61,6 @@ export const quoteMaker = async () => {
     catch (error) {
         console.error("Error at fetching a quote:", error);
         return randomQuote;
-    }
+    }*/
+   return randomQuote;
 }
