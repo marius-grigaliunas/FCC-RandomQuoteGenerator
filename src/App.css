@@ -1,7 +1,16 @@
+:root {
+    --bg-color: #00224D;
+    --red-color: #FF204E;
+    --maroon-color: #A0153E;
+    --dark-cherry-color: #5D0E41;
+}
+
+
 body {
     width: 100%;
     height: 90vh;
-    background-color: rgb(164, 128, 201);
+    background-color: var(--bg-color);
+    font-family: 'Roboto';
 }
 
 #root {
@@ -14,8 +23,22 @@ body {
 #quote-box {
     justify-self: center;
     align-self: center;
-    width: 70%;
-    height: 60%;
+    width: 45vw;
+    min-height: 30vh;
+    max-height: 45vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid var(--maroon-color);
+    border-radius: 30px;
+    color: white;
+    background-color: var(--dark-cherry-color);
+}
+
+#quote-box:hover {
+    border: 3px solid var(--red-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 #text {
@@ -23,8 +46,15 @@ body {
     height: 45%;
     border: none;
     text-align: center;
-    font-size:xx-large;
+    font-size:large;
     align-content: center;
+}
+
+#quote-field {
+    flex : 1;
+    display: flex;
+    flex-direction: column;
+    height: 60%;
 }
 
 #author {
@@ -32,16 +62,18 @@ body {
     border: none;
     text-align: right;
     padding: 2vw;
-    font-size: xx-large;
+    font-size: large;
     font-weight: bold;
 }
 
-.controls {
+#controls {
+    height: 30%;
+    width: 100%;
     display: flex;
-    height: 15%;
     border: none;
-    justify-content: center;
-    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 5%;
 }
 
 .share-bar {
@@ -59,7 +91,7 @@ body {
     display: flex;
 }
 
-button, .twitter-share-button {
+#new-quote, #tweet-quote {
     height: 5vh;
     border-radius: 16px;
     width: 10vw;
@@ -69,7 +101,18 @@ button, .twitter-share-button {
     font-size: large;
     border: none;
     background-color: rgb(21, 179, 252);
-    
+}
+
+#new-quote:hover {
+    border: 2px solid var(--red-color);    
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.twitter-share-button:hover {
+    border: 1px solid lightblue;    
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 a:link {
@@ -81,3 +124,4 @@ a:visited {
     text-decoration: none;
     color: white;
 }
+

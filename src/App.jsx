@@ -3,10 +3,13 @@ import QuoteGenerator from './components/QouteGenerator';
 import { randomQuote, quoteMaker }  from './components/QuoteCreation'
 //import quoteMaker from './components/QuoteCreation';
 import ShareBar from './components/Sharebar';
+import QuoteField from './components/QuoteField';
 import "./App.css"
 
 function App() {
-  const [quote, setQuote] = useState(randomQuote);
+
+  const [ quote, setQuote ] = useState(randomQuote)
+  const [ quoteLoaded, setQuoteLoaded] = useState(true)
 
   /*useEffect(() => {
     const handleQuoteRequest = async () => {
@@ -20,15 +23,18 @@ function App() {
   return (
     <>
       <section id="quote-box">
-        <div id="text">
-          {quote.quote}
+        <div id='quote-field'>
+          <QuoteField quoteToRender={quote} />
         </div>
-        <div id='author'>
-          -{quote.author}
-        </div>
-        <div className='controls'>
-          <QuoteGenerator setQuote={setQuote} />
-          <ShareBar />
+        <div id='controls'>
+          <QuoteGenerator 
+            quoteToPass={setQuote} 
+            isLoaded={setQuoteLoaded} 
+          />
+          <ShareBar 
+            quoteToPost={`${quote.quote}\n-${quote.author}`} 
+            disabled ={quoteLoaded}
+          />
         </div>
       </section>
     </>

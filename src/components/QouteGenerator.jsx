@@ -1,20 +1,35 @@
-import PropTypes from 'prop-types';
 import { quoteMaker } from './QuoteCreation';
+import { useState } from 'react';
 
-function QuoteGenerator({ setQuote }) {
+const QuoteGenerator = ({ quoteToPass, isLoaded }) => {
+    
+    const [ quoteLoaded, setQuoteLoaded] = useState(true);
+
     const handleQuoteRequest = async () => {
-        const quote = await quoteMaker();
-        setQuote(quote);
+        setQuoteLoaded(false)
+        isLoaded(false)
+        try {
+            const quote = await quoteMaker();
+            quoteToPass(quote)
+        } catch (error) {
+            console.error('Error fetching quote.. ', error)
+        } finally {
+            setQuoteLoaded(true)
+            isLoaded(true)
+        }
     }
 
     return (
-        <button id="new-quote" onClick={handleQuoteRequest}>New quote</button>
-    );
-};
+        <button 
+            id="new-quote" 
+            onClick={handleQuoteRequest}
+            disabled={!quoteLoaded}
+        >
+            {quoteLoaded ? "New Quote" : "waiting.."}
+        </button>
 
-QuoteGenerator.propTypes = {
-    setQuote: PropTypes.func.isRequired
-  };
+    )
+}
   
 
 export default QuoteGenerator;

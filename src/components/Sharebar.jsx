@@ -1,12 +1,18 @@
-const ShareBar = () => {
+const ShareBar = ({ quoteToPost, disabled }) => {
+    const postText = encodeURIComponent(quoteToPost);
+    const postURI = `https://twitter.com/intent/tweet?text=${postText}`;
+    
     return (
-        <div className="share-bar">
-            <div className="share-box">
-                <a id="tweet-quote" class="twitter-share-button" href="https://twitter.com/intent/tweet" target="_blank">
-                    Twitter
+                <a 
+                    id="tweet-quote" 
+                    className="twitter-share-button" 
+                    href={postURI} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{pointerEvents: disabled ? 'auto' : 'none', opacity: disabled ? 1 : 0.5}}    
+                >
+                    Tweet
                 </a>
-            </div>
-        </div>
     );
 }
 

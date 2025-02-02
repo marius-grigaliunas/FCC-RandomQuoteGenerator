@@ -3,7 +3,7 @@
 
 const quotes = [
     {
-      quote: "I told my wife she was drawing her eyebrows too high. She looked surprised. I told my wife she was drawing her eyebrows too high. She looked surprised. I told my wife she was drawing her eyebrows too high. She looked surprised. ",
+      quote: "I told my wife she was drawing her eyebrows too high. She looked surprised.",
       author: "Anonymous"
     },
     {
@@ -59,7 +59,7 @@ export const quoteMaker = async () => {
         return {quote: data.text, author: data.author};
     }
     catch (error) {
-        console.error("Error at fetching a quote:", error);
+        console.error("Error fetching quote:", error);
         return randomQuote;
     }*/
    return randomQuote;
