@@ -1,8 +1,9 @@
-# React + Vite
+# Random programming quote generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Created for the freeCodeCamp's front-end development libraries certification course
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- React frontend
+- Connecting to an outside API to get a random quote about programming
+- First quote is from a list of pregenerated funny quotes
+- Loading state spinner   
