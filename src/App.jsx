@@ -5,6 +5,7 @@ import { randomQuote, quoteMaker }  from './components/QuoteCreation'
 import ShareBar from './components/Sharebar';
 import QuoteField from './components/QuoteField';
 import "./App.css"
+import Spinner from './components/Spinner';
 
 function App() {
 
@@ -31,6 +32,9 @@ function App() {
             quoteToPass={setQuote} 
             isLoaded={setQuoteLoaded} 
           />
+          <div className='loader-container'>
+            { !quoteLoaded && <Spinner/> }
+          </div>
           <ShareBar 
             quoteToPost={`${quote.quote}\n-${quote.author}`} 
             disabled ={quoteLoaded}
